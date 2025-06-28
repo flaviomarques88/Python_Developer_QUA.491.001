@@ -1,9 +1,27 @@
 import os
+usuario = {
+      "nome": "",
+        "data_nascimento": "",
+        "email": "",
+        "cpf": "",
+        "telefone": "",
+        "genero": ""   
 
-lista = []
+}
+
+lista = [
+    "Flavio",
+    "Maria",
+    "Joas",
+    "Cristina",
+    "Ivaneide"
+]
+usuario.sort(reverse=True)
+for nome in usuario:
+    print(nome)
 
 while True:
-    # menu
+    print("🐍 MENU DE OPÇÕES")
     print("1 - Cadastro novo nome na lista")
     print("2 - Liste todos os nomes da lista")
     print("3 - Pesquise por um nome na lista")
@@ -25,9 +43,9 @@ while True:
         case "2":
             try:
                 if lista:
-                    print("Nomes cadastrados:")
-                    for i, nome in enumerate(lista, start=1):
-                        print(f"{i}. {nome}")
+                    print("Listar Usuario Cadastrados:")
+                    for i, usuario in enumerate(lista, start=1):
+                        print(f"{i}. {usuario}")
                 else:
                     print("A lista está vazia.")
             except Exception as e:
