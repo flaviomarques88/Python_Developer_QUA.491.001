@@ -1,101 +1,155 @@
-#atividade
-#declaração de variveis
+# bibliotecas
 import os
+import random
+import datetime
+from datetime import date
 
-usuarios =[]
-lista = {
+# lista vazia
+usuarios = []
 
-}
-
-#função para cadastrar usuarios
+# loop
 while True:
-    print("🐍 MENU DE OPÇÕES")
-    print("1  Cadastro um Novo Usuários")
-    print("2 - Listar Todos os Usuários")
-    print("3 - Alterar um Usuário")
-    print("4 - Sorteia o Usuário")
-    print("5 - Excluir um Usuário")
-    print("6 - Sair do Programa")
-    opcao = input("INFORME A OPÇÃO DESEJADA:")
+    # dicionário
+    usuario = {}
+
+    # menu
+    print("1 - Cadastrar novo usuário")
+    print("2 - Listar usuários")
+    print("3 - Alterar dados de um usuário")
+    print("4 - Sortear usuário")
+    print("5 - Excluir usuário")
+    print("6 - Sair do programa")
+    opcao = input("Informe a opção desejada: ").strip()
+
+    # limpa a tela
     os.system("cls" if os.name == "nt" else "clear")
 
+    # verifica a opção do usuário
     match opcao:
         case "1":
-           try:
-                nome = input("Informe o Nome Completo: ").title().strip()
-                data_nascimento = input("Informe a data de nascimento (DD/MM/AAAA):").strip()
-                email = input("Digite o E-mail: ").strip
-                cpf = input("Digite o CPF: ").strip()
-                telefone = input("Digite o Telefone: ")
-                genero = input("Informe o Gênero (M/F): ").strip().upper()
-                if genero not in ["M", "F"]:
-                    print("Gênero inválido. Use 'M' para Masculino ou 'F' para Feminino.")
-     
-           finally:
-                    continue
-                
+            try:
+                usuario['nome'] = input("Informe o nome: ").strip().title()
+                usuario['data de nascimento'] = input("Informe a data de nascimento: ").strip()
+                usuario['email'] = input("Informe o email: ").strip().lower()
+                usuario['cpf'] = input("Informe o CPF: ").strip()
+                usuario['telefone'] = input("Informe o telefone: ").strip()
+                usuario['genero'] = input("Informe o gênero: ").strip()
+                usuario['data do cadastro'] = date.today().strftime("%d/%m/%Y")
+                usuario['hora do cadastro'] = datetime.datetime.now().strftime("%H:%M:%S")
+
+                usuarios.append(usuario)
+                os.system("cls" if os.name == "nt" else "clear")
+
+                print(f"Usuário {usuario.get('nome')} cadastrado com sucesso.")
+            except Exception as e:
+                print(f"Não foi possível cadastrar usuário. {e}.")
+            finally:
+                continue
         case "2":
             try:
-                lista = usuarios
-                if lista:
-                    print("Lista - Usuários Cadastrados: ")
-                for i, in enumerate(lista, start=1):
-                      for i, usuarios in enumerate(lista, start=1):
-                        print(f"{i}. {usuarios}")
-                else:
-                    print("A lista está vazia.")
+                for i in range(len(usuarios)):
+                    print(f"Índice: {i}")
+                    for chave in usuarios[i]:
+                        print(f"{chave.capitalize()}: {usuarios[i].get(chave)}")
+                    print('-'*40)
             except Exception as e:
-                print(f"Não Foi Possível Exibir a Lista: {e}")
+                print(f"Não foi possível listar usuários. {e}.")
             finally:
                 continue
         case "3":
             try:
-                nome_usuario = input("Digite o Nome do Usuário que Deseja Alterar: ").title().strip()
-                if nome_usuario in usuarios:
-                    novo_nome = input("Digite o novo nome: ").title().strip()
-                    indice = usuarios.index(nome_usuario)
-                    usuarios[indice] = novo_nome
-                    print(f"{nome_usuario} Foi Alterado Para {novo_nome}.")
+                i = int(input("Informe o índice que deseja alterar: "))
+                os.system("cls" if os.name == "nt" else "clear")
+                if i >= 0 and i < len(usuarios):
+                    print(f"{'-'*20} Dados do usuário {'-'*20}")
+                    for chave in usuarios[i]:
+                        print(f"{chave.capitalize()}: {usuarios[i].get(chave)}")
+                    print("\n")
+                    while True:
+                        chave_escolhida = input("Informe a chave a alterar:").strip().lower()
+                        if chave_escolhida in usuarios[i]:
+                            usuarios[i][chave_escolhida] = input(f"Informe o novo valor de {chave_escolhida}: ")
+                            os.system("cls" if os.name == "nt" else "clear")
+                            print("Chave alterada com sucesso.")
+                        else:
+                            print("Chave inexistente.")
+                        while True:
+                            prosseguir = input("Deseja alterar outra chave? (s/n): ").strip().lower()
+                            if prosseguir == "s" or prosseguir == "n":
+                                break
+                            else:
+                                continue
+                        match prosseguir:
+                            case "s":
+                                continue
+                            case "n":
+                                break
                 else:
-                    print(f"{nome_usuario} não encontrado na lista.")
+                    print("Índice inválido.")
             except Exception as e:
-                print(f"Erro ao alterar usuário: {e}")
+                print(f"Não foi possível alterar dados. {e}.")
             finally:
                 continue
-            
         case "4":
             try:
-                if usuarios:
-                    import random
-                    sorteado = random.choice(usuarios)
-                    print(f"O Usuário Sorteado é: {sorteado}")
-                else:
-                    print("Nenhum usuário Cadastrado para Sortear.")
+                i = random.randint(0, len(usuarios)-1)
+                print("Usuário sorteado:")
+                for chave in usuarios[i]:
+                    print(f"{chave.capitalize()}: {usuarios[i].get(chave)}")
             except Exception as e:
-                print(f"Erro ao sortear usuário: {e}")
+                print(f"Não foi possível sortear usuário. {e}.")
             finally:
                 continue
-
         case "5":
             try:
-                nome_excluir = input("Digite o Nome do Usuário que Deseja Excluir: ").title().strip()
-                if nome_excluir in usuarios:
-                    usuarios.remove(nome_excluir)
-                    print(f"{nome_excluir} Foi Removido da Lista.")
+                i = int(input("Informe o índice a ser excluído: "))
+                if i >= 0 and i < len(usuarios):
+                    for chave in usuarios[i]:
+                        print(f"{chave.capitalize()}: {usuarios[i].get(chave)}")
+                    while True:
+                        excluir = input("Tem certeza? (s/n): ").strip().lower()
+                        if excluir == "s" or excluir == "n":
+                            break
+                        else:
+                            print("Opção inválida.")
+                            continue
+                    match excluir:
+                        case "s":
+                            del usuarios[i]
+                            os.system("cls" if os.name == "nt" else "clear")
+                            print("Usuário excluído com sucesso.")
+                        case "n":
+                            os.system("cls" if os.name == "nt" else "clear")
+                            print("Usuário não excluído.")
                 else:
-                    print(f"{nome_excluir} não encontrado na lista.")
+                    print("Índice inválido.")
             except Exception as e:
-                print(f"Erro ao Excluir Usuário: {e}")
+                print(f"Não foi possível excluir usuário. {e}.")
             finally:
                 continue
-
         case "6":
-            try:
-                print("Sair do Programa.")
-            except Exception as e:
-                print(f"Erro ao Sair do Programa: {e}")
+            print("Programa encerrado.")
             break
-        
         case _:
-           
-            print("Opção Invalida. ")
+            print("Opção inválida.")
+            continue
+
+"""
+# TODO - atividade 🐍💻: Crie um programa que faça as seguintes funções:
+- Cadastre um novo usuário
+- Liste todos os usuários cadastrados
+- Altere os dados de um usuário
+- Fazer sorteio de usuário
+- Exclua um usuário
+- Saia do programa
+# NOTE - dados do usuário:
+- Nome completo
+- Data de Nascimento
+- E-mail
+- CPF
+- Telefone
+- Gênero
+- Data do cadastro (pegar do sistema)
+- Hora do cadastro (pegar do sistema)
+# NOTE - DIVIRTAM-SE!!! 💻😎👌
+"""
