@@ -13,7 +13,7 @@ def main():
     # métodos set
     usuario.nome = input("Informe o nome: ").strip().title()
     usuario.cpf = input("Informe o CPF: ").strip()
-    usuario.telefone = input("Informe o telefone: ").strip()
+    usuario.telefone = input("Informe o Telefone: ").strip()
     usuario.endereco = input("Informe o endereço: ").strip().title()
 
     limpar()

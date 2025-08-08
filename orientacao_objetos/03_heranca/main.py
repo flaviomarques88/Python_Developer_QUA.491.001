@@ -11,7 +11,7 @@ def main():
     # input do usuário
     print("Entre com os dados do usuário:\n")
 
-    usuario.nome = input("Informe o nome: ").strip().title()
+    usuario.nome = input("Informe o Nome: ").strip().title()
     usuario.cpf = input("Informe o CPF: ").strip()
     usuario.telefone = input("Informe o telefone: ").strip()
     usuario.endereco = input("Informe o endereço: ").strip().title()

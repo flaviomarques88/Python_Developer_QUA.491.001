@@ -28,6 +28,6 @@ class PessoaJuridica(Pessoa):
         super().__init__(telefone, endereco)
     
     def exibir_dados(self):
-        print(f"Nome da empresa: {self.nome_fantasia}")
+        print(f"Nome da Empresa: {self.nome_fantasia}")
         print(f"CNPJ: {self.cnpj}")
         super().exibir_dados()
