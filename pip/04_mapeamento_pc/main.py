@@ -3,33 +3,33 @@ import platform
 import psutil
 import socket
 
-print(f"Sistema Operacinal: {platform.system()} {platform.release()}.")
-print(f"Nome do Usuário: {os.environ.get("USERNAME")}.")
+print(f"Sistema Operacional: {platform.system()} {platform.release()}.")
+print(f"Nome do usuário: {os.environ.get("USERNAME")}.")
 print(f"IPv4: {socket.gethostbyname(socket.gethostname())}.")
 
-#Coleta Informações Sobre as Portas TCP e UDP.
-print(f"Portas Abertas:/n")
-connetall = psutil.net_connections(kind="inet")
+# coleta informações sobre as portas TCP e UDP
+print("Portas abertas:\n")
+connectall = psutil.net_connections(kind="inet")
 only_udp = [conn for conn in psutil.net_connections(kind="inet") if conn.type == socket.SOCK_DGRAM]
 
-# Separar as Informações Sobre as Portas
-only_tcp_listenig_ports = [conn.laddr.port for conn in connetall if conn.status == psutil.CONN_LISTEN] # TCP
-only_udp_listenig_ports = [conn.laddr.port for conn in only_udp] # UDP
+# separar as informações sobre as portas
+only_tcp_listening_ports = [conn.laddr.port for conn in connectall if conn.status == psutil.CONN_LISTEN] # tpc
+only_udp_listening_ports = [conn.laddr.port for conn in only_udp] # udp
 
-# Remover as Portas da Lista
-only_tcp_listenig_ports = list(set(only_tcp_listenig_ports))
-only_udp_listenig_ports = list(set(only_udp_listenig_ports))
+# remover as portas repetidas da lista
+only_tcp_listening_ports = list(set(only_tcp_listening_ports))
+only_udp_listening_ports = list(set(only_udp_listening_ports))
 
-# Organizar as Portas
-only_tcp_listenig_ports.sort()
-only_udp_listenig_ports
+# organizar as portas
+only_tcp_listening_ports.sort()
+only_udp_listening_ports.sort()
 
-# Mostrar as Portas TCP
+# mostra as portas TCP
 print("Portas TCP:\n")
-for port in only_tcp_listenig_ports:
-    print(f"Porta TCP: {port} Aberta")
+for port in only_tcp_listening_ports:
+    print(f"Porta TCP: {port} aberta.")
 
-#Mostra as Portas UDP
+# mostra as portas UDP
 print("Portas UDP:\n")
-for port in only_udp_listenig_ports:
-    print(f"Porta UDP: {port} Aberta")
+for port in only_udp_listening_ports:
+    print(f"Porta UDP: {port} aberta.")
