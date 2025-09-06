@@ -11,33 +11,33 @@ class Pessoa:
     email: str
 
 def main(page: ft.Page):
-    #função do evento
+    # funação do evento
     def mostrar_dados(e):
-        saida_titulo.value="Dados do Usuário:\n"
+        saida_titulo.value = "Dados do usuário:\n"
         nome.value = f"Nome: {usuario.nome.value}"
-        nome.value = f"Idade: {usuario.idade.value}"
-        nome.value = f"Peso: {usuario.peso.value}KG"
-        nome.value = f"Salário: {usuario.salario.value:.2f}"
-        nome.value = f"E-Mail: {usuario.email.value}"
+        idade.value = f"Idade: {usuario.idade.value}"
+        peso.value = f"Peso: {usuario.peso.value} kg"
+        salario.value = f"Salário: R$ {usuario.salario.value}"
+        email.value = f"E-mail: {usuario.email.value}"
 
         page.update()
 
-    # instancia a class
+    # instancia a classe
     usuario = Pessoa(nome="", idade=0, peso=0.0, salario=0.0, email="")
 
-    # As propriedades da pagina
-    page.title = "Dados do Usuário"
+    # propriedades da página
+    page.title = "Dados do usuário"
     page.scroll = "adaptive"
     page.theme_mode = ft.ThemeMode.LIGHT
 
-    #Seta os valores informado pelo usuario
+    # seta os valores informados pelo usuário
     usuario.nome = ft.TextField(label="Nome")
-    usuario.idade = ft.TextField(label="Idade", suffix_text="Anos")
-    usuario.peso = ft.TextField(label="Peso", suffix_text="KG")
+    usuario.idade = ft.TextField(label="Idade", suffix_text="anos")
+    usuario.peso = ft.TextField(label="Peso", suffix_text="kg")
     usuario.salario = ft.TextField(label="Salário", prefix_text="R$ ")
-    usuario.email = ft.TextField(label="E-Mail", on_submit=mostrar_dados)
+    usuario.email = ft.TextField(label="E-mail", on_submit=mostrar_dados)
 
-    #variaveis de saida
+    # variáveis de saída
     saida_titulo = ft.Text(weight="bold")
     nome = ft.Text()
     idade = ft.Text()
@@ -45,17 +45,14 @@ def main(page: ft.Page):
     salario = ft.Text()
     email = ft.Text()
 
-    
     page.add(
         ft.SafeArea(
             ft.Container(
-                ft.Text("Dados do Usuário", size=30, weight="bold"),
+                ft.Text("Dados do usuário", size=30, weight="bold"),
                 alignment=ft.alignment.center,
             ),
-            
             expand=True,
         ),
-    
         usuario.nome,
         usuario.idade,
         usuario.peso,
@@ -68,7 +65,6 @@ def main(page: ft.Page):
         peso,
         salario,
         email
-    
     )
 
 ft.app(main)
