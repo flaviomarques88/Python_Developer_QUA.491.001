@@ -2,23 +2,23 @@
 <html lang="pt-br">
 
 <head>
-    <!--CSS BOOTSTRAP-->
-    <meta name="author" content="Senai Taguatinga">
+    <meta name="author" content="Alex Machado Ribeiro">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Python Developer Senai</title>
+    <title>Bootstrap demo</title>
+
+    <!-- css bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body class="bg-dark" data-="dark">
-    <!--navbar-->
-
-    <!--fim do navbar-->
-    <nav class="navbar navbar-expand-lg mb-5 data-bs-theme=" dark" style="background-color: rgb(138, 135, 135);">
+<body class="bg-dark" data-bs-theme="dark">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg mb-5" data-bs-theme="dark"
+        style="background-color: #16161d; box-shadow: 10px 0px 20px #000;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="assests/img/icone.png.png" alt="Icone" style="margin: -10px 0px;">
+                <img src="assests/img/icone.png" alt="Ícone" style="margin: -10px 0px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -38,52 +38,199 @@
                             aria-expanded="false">
                             Listar
                         </a>
-                        <ul class="dropdown-menu">Listar Todos Usuários</a>
-                            <hr class="dropdown-divider">
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Listar todos os usuários</a></li>
+                            <li><a class="dropdown-item" href="#">Pesquisar usuário</a></li>
+                        </ul>
                     </li>
-                    <li><a class="dropdown-item" href="#">Pesquisar Usuários</a></li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Alterar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Excluir</a>
-                </li>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Alterar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Excluir</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!--fim do navbar-->
+    <!-- fim do navbar -->
 
-    <!--container-->
+    <!-- container -->
     <div class="container">
         <h1>Formulário</h1>
-        <hr>
+        <hr class="mb-5">
         <form action="" method="">
-            <!--row-->
+            <h2>Dados pessoais</h2>
+            <hr class="mb-5">
+            <!-- row 1 -->
             <div class="row">
-                <div class="col-12-md-6 col-lg-8" <div class="input-group mb-3">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <span class="input-group-text">.00</span>
+                <!-- campo nome -->
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Nome completo</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
                     </div>
                 </div>
-                <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+                <!-- campo cpf -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
             </div>
-    </div>
+            <!-- fim da row -->
 
-    </div>
-    </div>
+            <!-- row 2 -->
+            <div class="row">
+                <!-- campo telefone -->
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Telefone</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
 
-    </form>
+                <!-- campo data de nascimento -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Data de nascimento</span>
+                        <input type="date" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <!-- campo gênero -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="input-group mb-4">
+                        <label class="input-group-text" for="inputGroupSelect01">Gênero</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Escolha...</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
+                            <option value="3">Outro</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- row 3 -->
+            <div class="row">
+                <!-- campo e-mail -->
+                <div class="col-12 col-md-6">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">E-mail</span>
+                        <input type="email" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+
+                <!-- campo escolaridade -->
+                <div class="col-12 col-md-6">
+                    <div class="input-group mb-4">
+                        <label class="input-group-text" for="inputGroupSelect01">Escolaridade</label>
+                        <select class="form-select" id="inputGroupSelect01">
+                            <option selected>Escolha...</option>
+                            <option value="1">Nível fundamental</option>
+                            <option value="2">Nível médio</option>
+                            <option value="3">Nível Superior</option>
+                            <option value="3">Pós-graduação</option>
+                            <option value="3">Mestrado</option>
+                            <option value="3">Doutorado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- campos do endereço -->
+            <h2>Endereço</h2>
+            <hr class="mb-5">
+            <!-- row 4 -->
+            <div class="row">
+                <!-- campo cep -->
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CEP</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo estado -->
+                <div class="col-12 col-md-8 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Estado</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo cidade -->
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Cidade</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- row 5 -->
+            <div class="row">
+                <!-- campo bairro -->
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo logradouro -->
+                <div class="col-12 col-md-8 col-lg-5">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Logradouro</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                <!-- campo número -->
+                <div class="col-12 col-md-4 col-lg-2">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Número</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- row 6 -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Complemento</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+            </div>
+            <!-- fim da row -->
+
+            <!-- botão -->
+            <div class="row">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <button type="button" class="btn btn-primary mt-5 mb-5">Enviar</button>
+                </div>
+            </div>
+        </form>
     </div>
+    <!-- fim do container -->
 
-    <!--fim do container-->
-
-    <!--SCRIPT JS BOOTSTRAP-->
+    <!-- script js bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
