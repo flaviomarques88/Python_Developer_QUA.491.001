@@ -1,4 +1,5 @@
 from django.db import models
+from django.db import models
 
 # Create your models here.
 class Pessoa(models.Model):
@@ -7,5 +8,5 @@ class Pessoa(models.Model):
     email = models.EmailField(unique=True, null=False, blank=False)
     cpf = models.CharField(max_length=14, unique=True, null=True, blank=True)
 
-def __str__(self):
-    return self.nome
+    def __str__(self):
+        return self.nome
