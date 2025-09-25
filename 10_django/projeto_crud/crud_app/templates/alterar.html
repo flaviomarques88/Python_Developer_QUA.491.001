@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}CRUD - Alterar Dados{% endblock %}
+{% block title %}CRUD Alterar dados{% endblock %}
 {% block content %}
+{% load static %}
     <!-- container -->
     <div class="container">
-        <h1>Alterar Dados</h1>
+        <h1>Alterar dados</h1>
         <hr class="mb-5">
         <form action="{% url 'alterar_pessoa' pessoa.id_pessoa %}" method="POST">
             {% csrf_token %}
@@ -11,7 +12,7 @@
                 <div class="col-12 col-lg-8">
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="inputGroup-sizing-default">Nome completo</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nome" values="{{pessoa.nome}}" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="nome" value="{{ pessoa.nome }}" required>
                     </div>
                 </div>
             </div>
@@ -19,7 +20,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="inputGroup-sizing-default">E-mail</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" value="{{pessoa.email}}" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="email" value="{{ pessoa.email }}" required>
                     </div>
                 </div>
             </div>
@@ -27,7 +28,7 @@
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="input-group mb-4">
                         <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
-                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cpf" value="{{pessoa.cpf}}" required>
+                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="cpf" value="{{ pessoa.cpf }}" required>
                     </div>
                 </div>
             </div>
